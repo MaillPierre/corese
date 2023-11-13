@@ -2,15 +2,23 @@
 
 This tutorial shows how to use the basic features of the Corese-server framework.
 
-1. [Getting Started With Corese-server](#getting-started-with-corese-server)
-   1. [1. Installation](#1-installation)
-   2. [2. Load data](#2-load-data)
-      1. [2.1. Command line](#21-command-line)
-      2. [2.2. Profile file](#22-profile-file)
-   3. [3. Create multiple endpoints](#3-create-multiple-endpoints)
-      1. [3.1. Multiple endpoints with different data](#31-multiple-endpoints-with-different-data)
-   4. [4. Restrict access to external endpoints](#4-restrict-access-to-external-endpoints)
-   5. [5. To go deeper](#5-to-go-deeper)
+[Getting Started With Corese-server](#getting-started-with-corese-server)
+- [1. Installation](#1-installation)
+- [2. Load data](#2-load-data)
+    - [2.1. Command line](#21-command-line)
+- [3. Profile file](#3-profile-file)
+    - [3.1 Create multiple endpoints](#31-create-multiple-endpoints)
+        - [3.1.1 Multiple endpoints with different data](#311-multiple-endpoints-with-different-data)
+    - [3.2 Restrict access to external endpoints](#32-restrict-access-to-external-endpoints)
+- [4. Restrict access to external endpoints](#4-restrict-access-to-external-endpoints)
+    - [4.1. Blank node format](#41-blank-node-format)
+    - [4.2. Loading in the default graph](#42-loading-in-the-default-graph)
+    - [4.3. RDF* (RDF Star)](#43-rdf-rdf-star)
+    - [4.4. OWL utilities](#44-owl-utilities)
+    - [4.5. SPARQL engine behavior](#45-sparql-engine-behavior)
+    - [4.6. SPARQL federation behavior](#46-sparql-federation-behavior)
+    - [4.7. SPARQL LOAD parameters](#47-sparql-load-parameters)
+- [5. To go deeper](#5-to-go-deeper)
 
 ## 1. Installation
 
@@ -169,7 +177,7 @@ LOAD_IN_DEFAULT_GRAPH   = true
 By default, the data is loaded into the default graph. If `LOAD_IN_DEFAULT_GRAPH` is set to `false`, the data is loaded into a named graph whose name is the path of the file.
 Note that internally, the default graph of the Corese server is named `http://ns.inria.fr/corese/kgram/default`, or `kg:default`.
 
-#### 4.3. RDF* (RDF Star)
+### 4.3. RDF* (RDF Star)
 ```properties
 RDF_STAR                = false
 ```
@@ -276,7 +284,7 @@ LOAD_FORMAT   = application/rdf+xml
 ```
 If `LOAD_WITH_PARAMETER` is enabled, `LOAD_FORMAT` can be used to specify which mime type should be resquest as format for the loaded data.
 
-## 6. To go deeper
+## 5. To go deeper
 
 - [Technical documentation](https://files.inria.fr/corese/doc/server.html)
 - [Storage](https://github.com/Wimmics/corese/blob/master/docs/storage/Configuring%20and%20Connecting%20to%20Different%20Storage%20Systems%20in%20Corese.md#configuring-and-connecting-to-different-storage-systems-in-corese)
