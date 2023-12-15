@@ -1,17 +1,52 @@
+<!-- markdownlint-disable MD024 -->
+
 # Corese Changelog
+
+## 4.5.0 – 2023/12/14
+
+### Added
+
+- Added new sub-commands `shacl`, allowing to validate RDF graphs against SHACL shapes.
+- Added new sub-commands `remote-sparql`, allowing to execute SPARQL queries on remote endpoints (see [issue #135](https://github.com/Wimmics/corese/issues/135)).
+- Added the verbose option to Corese-command.
+- Added support for property files to Corese-command.
+- Added `-no-owl-import` option to Corese-command (see [issue #134](https://github.com/Wimmics/corese/issues/134)).
+- Added output format `N-Triples` to Corese-command convert sub-command.
+- Added output format `N-Quads` to Corese-command convert sub-command.
+- Improved RDF serializers (see [issue #142](https://github.com/Wimmics/corese/issues/143)).
+- Added support for property files to Corese-python.
+- Added `-p` option to Corese-python allowing to customize communication between Python and Java (see [issue #153](https://github.com/Wimmics/corese/issues/153)).
+- Updated loading message in Corese-GUI (see [issue #156](https://github.com/Wimmics/corese/pull/156)).
+
+### Changes
+
+- Moved hint messages in Corese-Command to the standard error stream.
+- Moved error messages to the standard error stream (see [issue #141](https://github.com/Wimmics/corese/issues/141) and [issue #142](https://github.com/Wimmics/corese/issues/142)).
+
+### Fixed
+
+- Fixed support of data managers for SHACL in Corese-Server.
+- Fixed Trig serialization to escape special characters (see [issue #151](https://github.com/Wimmics/corese/issues/151)).
+- Fixed federated query with PREFIX statements failing under some conditions (see [issue #140](https://github.com/Wimmics/corese/issues/140)).
+
+### Security
+
+- Bumped org.json to 20231013 in /sparql (see [Pull Request #163](https://github.com/Wimmics/corese/pull/163)).
+- Bumped org.json to 20231013 in /corese-test (see [Pull Request #162](https://github.com/Wimmics/corese/pull/162)).
+- Bumped rack from 2.2.3 to 2.2.6.4 in /corese-unit-test/src/test/resources/data/rdf-star-main (see [Pull Request #121](https://github.com/Wimmics/corese/pull/121)).
 
 ## 4.4.1 – 2023/07/25 – Corese-command update
 
 ### Added
 
-- URL support as an input file for 'convert' and 'sparql' sub-commands in Corese-command.
-- Standard input support as an input file for 'sparql' and 'convert' sub-commands in Corese-command.
-- Standard output support as an output file for 'sparql' and 'convert' sub-commands in Corese-command.
-- Multiple files support as input for 'sparql' sub-command in Corese-command.
-- Directory and recursive directory support as an input file for 'sparql' sub-command in Corese-command.
-- Support for all types of queries (SELECT, CONSTRUCT, ASK, DESCRIBE, INSERT, DELETE, INSERT WHERE, DELETE WHERE) for 'sparql' sub-command in Corese-command.
-- User choice for result format for 'sparql' sub-command in Corese-command.
-- Markdown output format for 'sparql' sub-command in Corese-command.
+- URL support as an input file for `convert` and `sparql` sub-commands in Corese-command.
+- Standard input support as an input file for `sparql` and `convert` sub-commands in Corese-command.
+- Standard output support as an output file for `sparql` and `convert` sub-commands in Corese-command.
+- Multiple files support as input for `sparql` sub-command in Corese-command.
+- Directory and recursive directory support as an input file for `sparql` sub-command in Corese-command.
+- Support for all types of queries (SELECT, CONSTRUCT, ASK, DESCRIBE, INSERT, DELETE, INSERT WHERE, DELETE WHERE) for `sparql` sub-command in Corese-command.
+- User choice for result format for `sparql` sub-command in Corese-command.
+- Markdown output format for `sparql` sub-command in Corese-command.
 - Mime type support as a format name in Corese-command.
 - Configuration to disable owl:imports auto import.
 - Option to pass custom options to Corese-server with the Docker image.
@@ -19,12 +54,12 @@
 
 ### Changes
 
-- Refactored 'convert' and 'sparql' sub-commands in Corese-command.
+- Refactored `convert` and `sparql` sub-commands in Corese-command.
 - Renamed format name for more consistency in Corese-command.
 
 ### Removed
 
-- 'owlProfile' and 'ldscript' sub-commands from Corese-command (To be reintroduced in a future release after refactoring).
+- `owlProfile` and `ldscript` sub-commands from Corese-command (To be reintroduced in a future release after refactoring).
 
 ### Fixed
 
@@ -88,7 +123,7 @@
 - Graphical editor for SHACL file in Corese-GUI.
 - Graphical editor for TURTLE file in Corese-GUI.
 - Save graph option un Corese-GUI.
-- New type of graph [´CoreseModel´](https://github.com/Wimmics/corese/blob/master/docs/rdf4j/RDF4J%20API%20in%20Corese.md) implementing the [RDF4J](https://rdf4j.org/) [model API](https://rdf4j.org/javadoc/latest/).
+- New type of graph [`CoreseModel`](https://github.com/Wimmics/corese/blob/master/docs/rdf4j/RDF4J%20API%20in%20Corese.md) implementing the [RDF4J](https://rdf4j.org/) [model API](https://rdf4j.org/javadoc/latest/).
 - `DataManager` API to allows to connect the Corese SPARQL engine with other triple storage stucture.
 - Implement a `DataManager` for RDF4J.
 

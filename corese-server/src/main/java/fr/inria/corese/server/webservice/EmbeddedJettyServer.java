@@ -174,7 +174,7 @@ public class EmbeddedJettyServer extends ResourceConfig {
         options.addOption(keypasswordOpt);
 
         String header = "Once launched, the server can be managed through a web user interface, available at http://localhost:<PortNumber>\n\n";
-        String footer = "\nPlease report any issue to alban.gaignard@cnrs.fr";
+        String footer = "\nPlease report any issues at: <https://github.com/Wimmics/corese/issues>";
 
         try {
             CommandLineParser parser = new BasicParser();
@@ -188,7 +188,7 @@ public class EmbeddedJettyServer extends ResourceConfig {
                 port = Integer.parseInt(cmd.getOptionValue("p"));
             }
             if (cmd.hasOption("v")) {
-                logger.info("version 4.4.1");
+                logger.info("version 4.5.0");
                 System.exit(0);
             }
             if (cmd.hasOption("e")) {

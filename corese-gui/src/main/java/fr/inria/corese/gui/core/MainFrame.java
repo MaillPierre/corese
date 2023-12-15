@@ -108,7 +108,7 @@ public class MainFrame extends JFrame implements ActionListener {
     private static MainFrame singleton;
     private static final long serialVersionUID = 1L;
     private static final int LOAD = 1;
-    private static final String TITLE = "Corese 4.4.1 - Inria UCA I3S - 2022-06-06";
+    private static final String TITLE = "Corese 4.5.0 - Inria UCA I3S - 2023-10-14";
     // On déclare notre conteneur d'onglets
     protected static JTabbedPane conteneurOnglets;
     // Compteur pour le nombre d'onglets query créés
@@ -175,7 +175,8 @@ public class MainFrame extends JFrame implements ActionListener {
     private JCheckBox checkBoxRule;
     private JCheckBox checkBoxVerbose;
     private JCheckBox checkBoxLoad;
-    private JCheckBox cbrdfs, cbowlrl, cbclean, cbrdfsrl, cbowlrltest, cbowlrllite, cbowlrlext, cbtrace, cbnamed, cbindex;
+    private JCheckBox cbrdfs, cbowlrl, cbclean, cbrdfsrl, cbowlrltest, cbowlrllite, cbowlrlext, cbtrace, cbnamed,
+            cbindex;
     private JCheckBox cbshexClosed, cbshexExtend, cbshexCard, cbshexshex;
     private JMenuItem validate;
     // style correspondant au graphe
@@ -583,9 +584,9 @@ public class MainFrame extends JFrame implements ActionListener {
     private void initMenu() {
         JMenuBar menuBar = new JMenuBar();
         // crée les options du menu et leurs listeners
-        loadRDF = new JMenuItem("Dataset");
+        loadRDF = new JMenuItem("RDF, RDFS, OWL");
         loadRDF.addActionListener(this);
-        loadRDF.setToolTipText("Load Dataset");
+        loadRDF.setToolTipText("Load an RDF dataset or an RDFS or OWL schema");
 
         loadProperty = new JMenuItem("Property");
         loadProperty.addActionListener(this);
@@ -875,7 +876,7 @@ public class MainFrame extends JFrame implements ActionListener {
         displayMenu.add(defDisplay("Turtle", ResultFormat.TURTLE_FORMAT));
         displayMenu.add(defDisplay("Trig", ResultFormat.TRIG_FORMAT));
         displayMenu.add(defDisplay("RDF/XML", ResultFormat.RDF_XML_FORMAT));
-        displayMenu.add(defDisplay("JSON LD", ResultFormat.JSON_LD_FORMAT));
+        displayMenu.add(defDisplay("JSON LD", ResultFormat.JSONLD_FORMAT));
         displayMenu.add(defDisplay("Index", ResultFormat.UNDEF_FORMAT));
         displayMenu.add(defDisplay("Internal", ResultFormat.UNDEF_FORMAT));
 
@@ -1031,7 +1032,7 @@ public class MainFrame extends JFrame implements ActionListener {
         cbowlrl.addItemListener((ItemEvent e) -> {
             setOWLRL(cbowlrl.isSelected(), RuleEngine.OWL_RL);
         });
-        
+
         cbowlrltest.setEnabled(true);
         cbowlrltest.setSelected(false);
         cbowlrltest.addItemListener((ItemEvent e) -> {
@@ -1468,7 +1469,7 @@ public class MainFrame extends JFrame implements ActionListener {
                     }
                 }
             }
-            appendMsg("Load done\n");
+            appendMsg("\nLoading is done\n");
         }
     }
 
@@ -1738,7 +1739,7 @@ public class MainFrame extends JFrame implements ActionListener {
                 } else {
                     load(lPath);
                 }
-                appendMsg("Load done\n");
+                appendMsg("\nLoading is done\n");
             }
         }
     }
@@ -1987,7 +1988,7 @@ public class MainFrame extends JFrame implements ActionListener {
                 }
             }
         }
-        appendMsg("Load done\n");
+        appendMsg("\nLoading is done\n");
         return str;
     }
 
